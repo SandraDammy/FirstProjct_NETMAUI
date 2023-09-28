@@ -18,7 +18,7 @@
             <Label
                 Text="Hello, .NET MAUI!"
                 SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
+                FontSize="Header"
                 HorizontalOptions="Center" />
 
             <Label
