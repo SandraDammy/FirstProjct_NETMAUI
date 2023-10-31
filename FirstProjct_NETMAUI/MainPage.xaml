@@ -3,39 +3,36 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FirstProjct_NETMAUI.MainPage">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
+    <Grid RowDefinitions="100, Auto, *"
+          ColumnDefinitions=".75*, .25*"
+          Padding="10"
+          RowSpacing="10"
+          ColumnSpacing="10"
+    >
+        <Image Grid.ColumnSpan="2"
+               Source="dotnet_bot.png"
+               BackgroundColor="PowderBlue"
+        />
+        <Entry Placeholder="Enter task"
+               Grid.Row="1"
+        />
+        <Button Text="Add"
+                Grid.Row="1"
+                Grid.Column="1"
+         />
+        <CollectionView Grid.Row="2" Grid.ColumnSpan="2">
+            <CollectionView.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Apples</x:String>
+                    <x:String>Grapes</x:String>
+                    <x:String>Mangoes</x:String>
+                    <x:String>Kiwifruits</x:String>
+                    <x:String>Bananas</x:String>
+                </x:Array>
+            </CollectionView.ItemsSource>
+        </CollectionView>
 
-            <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
 
-            <Label
-                Text="Hello, .NET MAUI!"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="Header"
-                HorizontalOptions="Center" />
-
-            <Label
-                Text="Welcome to .NET Multi-platform App UI"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                FontSize="18"
-                HorizontalOptions="Center" />
-
-            <Button
-                x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Center" />
-
-        </VerticalStackLayout>
-    </ScrollView>
+    </Grid>
 
 </ContentPage>
