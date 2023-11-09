@@ -10,8 +10,8 @@
           ColumnSpacing="10"
     >
         <Image Grid.ColumnSpan="2"
-               Source="dotnet_bot.png"
-               BackgroundColor="PowderBlue"
+               Source="todo_logo.png"
+               BackgroundColor="Transparent" 
         />
         <Entry Placeholder="Enter task"
                Grid.Row="1"
@@ -19,6 +19,8 @@
         <Button Text="Add"
                 Grid.Row="1"
                 Grid.Column="1"
+                BackgroundColor="#000000"
+                TextColor="white"
          />
         <CollectionView Grid.Row="2" Grid.ColumnSpan="2">
             <CollectionView.ItemsSource>
@@ -32,11 +34,19 @@
             </CollectionView.ItemsSource>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Padding="0,5">
-                        <Frame>
-                            <Label Text="{Binding .}" FontSize="24"/>
-                        </Frame>
-                    </Grid>
+                    <SwipeView>
+                        <SwipeView.RightItems>
+                            <SwipeItems>
+                                <SwipeItem Text="Delete"  BackgroundColor="Red"/>
+                            </SwipeItems>
+                            
+                        </SwipeView.RightItems>
+                        <Grid Padding="0,5">
+                            <Frame>
+                                <Label Text="{Binding .}" FontSize="24"/>
+                            </Frame>
+                        </Grid>
+                    </SwipeView>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
