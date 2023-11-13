@@ -1,7 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FirstProjct_NETMAUI.MainPage">
+             x:Class="FirstProjct_NETMAUI.MainPage"
+             xmlns:viewmodel="clr-namespace:FirstProjct_NETMAUI.ViewModel"
+             x:DataType="viewmodel:MainViewModel"
+             >
 
     <Grid RowDefinitions="100, Auto, *"
           ColumnDefinitions=".75*, .25*"
@@ -14,6 +17,7 @@
                BackgroundColor="Transparent" 
         />
         <Entry Placeholder="Enter task"
+               Text="{Binding Text}"
                Grid.Row="1"
         />
         <Button Text="Add"
@@ -37,13 +41,15 @@
                     <SwipeView>
                         <SwipeView.RightItems>
                             <SwipeItems>
-                                <SwipeItem Text="Delete"  BackgroundColor="Red"/>
+                                <SwipeItem Text="Delete"  
+                                           BackgroundColor="Red"
+                                />
                             </SwipeItems>
                             
                         </SwipeView.RightItems>
                         <Grid Padding="0,5">
                             <Frame>
-                                <Label Text="{Binding .}" FontSize="24"/>
+                                <Label Text="{Binding}" FontSize="24"/>
                             </Frame>
                         </Grid>
                     </SwipeView>
