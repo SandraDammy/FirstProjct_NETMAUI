@@ -1,34 +1,45 @@
 ﻿
 
+using System.Collections.ObjectModel;
 using System.ComponentModel;
+
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 
 namespace FirstProjct_NETMAUI.ViewModel
 {
     public partial class MainViewModel : ObservableObject
     {
+        public MainViewModel() 
+        {
+            items = new ObservableCollection<string>();
+        }
+        //collecting the items
+        [ObservableProperty]
+        ObservableCollection<string> items;
+
         [ObservableProperty]
         string text;
 
-        [ICommand]
+        [RelayCommand]
         void Add()
         {
+            if (string.IsNullOrWhiteSpace(Text))
+                return;
+            
+            Items.Add(Text);
+
             // add our item
             Text = string.Empty;
         }
-        /*public string Text
+
+        [RelayCommand]
+        void Delete(string s) 
         {
-            get => text; 
-            set
+            if(Items.Contains(s))
             {
-                text = value;
-                OnPropertyChanged(nameof(Text));
+                Items.Remove(s);
             }
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        void OnPropertyChanged(string name) =>
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));*/
     }
 }

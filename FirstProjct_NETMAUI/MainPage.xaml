@@ -21,28 +21,23 @@
                Grid.Row="1"
         />
         <Button Text="Add"
+                Command="{Binding AddCommand}"
                 Grid.Row="1"
                 Grid.Column="1"
                 BackgroundColor="#000000"
                 TextColor="white"
          />
-        <CollectionView Grid.Row="2" Grid.ColumnSpan="2">
-            <CollectionView.ItemsSource>
-                <x:Array Type="{x:Type x:String}">
-                    <x:String>Apples</x:String>
-                    <x:String>Grapes</x:String>
-                    <x:String>Mangoes</x:String>
-                    <x:String>Kiwifruits</x:String>
-                    <x:String>Bananas</x:String>
-                </x:Array>
-            </CollectionView.ItemsSource>
+        <CollectionView Grid.Row="2" Grid.ColumnSpan="2" ItemsSource="{Binding Items}">
+           
             <CollectionView.ItemTemplate>
-                <DataTemplate>
+                <DataTemplate x:DataType="{x:Type x:String}">
                     <SwipeView>
                         <SwipeView.RightItems>
                             <SwipeItems>
                                 <SwipeItem Text="Delete"  
                                            BackgroundColor="Red"
+                                           Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=DeleteCommand}"
+                                           CommandParameter="{Binding .}"
                                 />
                             </SwipeItems>
                             

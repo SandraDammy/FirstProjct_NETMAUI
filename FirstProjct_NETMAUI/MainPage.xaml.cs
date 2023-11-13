@@ -1,11 +1,14 @@
-﻿namespace FirstProjct_NETMAUI;
+﻿using FirstProjct_NETMAUI.ViewModel;
+
+namespace FirstProjct_NETMAUI;
 
 public partial class MainPage : ContentPage
 {
 
-	public MainPage()
+	public MainPage(MainViewModel vm)
 	{
 		InitializeComponent();
+		BindingContext = vm;
 	}
 
 	
