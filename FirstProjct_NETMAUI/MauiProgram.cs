@@ -21,10 +21,13 @@ public static class MauiProgram
 		builder.Services.AddSingleton<MainViewModel>();
 
 
+        builder.Services.AddTransient<DetailPage>();
+        builder.Services.AddTransient<DetailViewModel>();
+
 #if DEBUG
-		//builder.Logging.AddDebug();
+        //builder.Logging.AddDebug();
 #endif
 
-		return builder.Build();
+        return builder.Build();
 	}
 }

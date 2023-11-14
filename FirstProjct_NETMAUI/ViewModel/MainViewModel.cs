@@ -41,5 +41,11 @@ namespace FirstProjct_NETMAUI.ViewModel
                 Items.Remove(s);
             }
         }
+
+        [RelayCommand]
+       async Task Tap(string s)
+        {
+            await Shell.Current.GoToAsync(nameof(DetailPage));
+        }
     }
 }
