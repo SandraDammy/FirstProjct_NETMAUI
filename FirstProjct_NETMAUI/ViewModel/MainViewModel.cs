@@ -10,10 +10,20 @@ namespace FirstProjct_NETMAUI.ViewModel
 {
     public partial class MainViewModel : ObservableObject
     {
-        public MainViewModel() 
+        public MainViewModel()
         {
             items = new ObservableCollection<string>();
         }
+
+        //connectivity
+        IConnectivity connectivity;
+        public MainViewModel(IConnectivity connectivity)
+        {
+            items = new ObservableCollection<string>();
+            this.connectivity = connectivity;
+        }
+
+
         //collecting the items
         [ObservableProperty]
         ObservableCollection<string> items;
@@ -22,15 +32,25 @@ namespace FirstProjct_NETMAUI.ViewModel
         string text;
 
         [RelayCommand]
-        void Add()
+        async Task Add()
         {
             if (string.IsNullOrWhiteSpace(Text))
                 return;
-            
+
+
+            //Network Connect
+            if (connectivity.NetworkAccess != NetworkAccess.Internet)
+            {
+                await Shell.Current.DisplayAlert("Uh Uh!", "No Internet", "OK");
+                return;
+            }
+
             Items.Add(Text);
 
             // add our item
             Text = string.Empty;
+
+           
         }
 
         [RelayCommand]
