@@ -1,6 +1,4 @@
-<<<<<<< HEAD
- 
-=======
+
 ## FirstProjct_NETMAUI
 
 ## Overview
@@ -62,4 +60,4 @@ Once the app is running, users can:
 
 The project follows a standard .NET MAUI folder structure, with separate directories for views, view models, services, etc. Detailed information about each directory's purpose can be found in the codebase.
 
->>>>>>> fc23dce8574a5432deeacf337937bc7c95fb20b3
+
